@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.10.16"
+__generated_with = "0.18.0"
 app = marimo.App(width="medium")
 
 
@@ -15,8 +15,7 @@ def _():
     from scipy.stats import variation
     from skimage.feature import peak_local_max
     from sklearn.cluster import DBSCAN
-
-    return DBSCAN, fft, find_peaks, io, np, peak_local_max, plt, variation
+    return DBSCAN, fft, io, np, peak_local_max, plt, variation
 
 
 @app.cell
@@ -29,7 +28,7 @@ def _(np):
         r = np.sum(nd ** 2, 1) ** 0.5
         theta = np.array([np.arctan2(y,x) for y,x in nd])
         return (r, theta)
-    return (rect_to_polar,)
+    return
 
 
 @app.cell
@@ -51,7 +50,7 @@ def _(np):
         _errors = np.abs(_scaled - np.round(_scaled))
         _multiples = radii[_errors < max_error]
         _multiples = _multiples / np.round(_scaled[_errors < max_error])
-        
+
         return np.mean(_multiples)
     return (find_base_radius,)
 
@@ -152,7 +151,7 @@ def _(angled, grid_fft):
 @app.cell
 def _():
     import marimo as mo
-    return (mo,)
+    return
 
 
 if __name__ == "__main__":
